@@ -162,7 +162,7 @@ Pair * firstTreeMap(TreeMap * tree)
 
     TreeNode* minimo = minimum(tree->root);
     tree->current = minimo;
-    return min->pair;
+    return minimo->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
