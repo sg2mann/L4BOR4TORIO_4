@@ -139,13 +139,13 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
 }
 
-void eraseTreeMap(TreeMap * tree, void* key){
+void eraseTreeMap(TreeMap * tree, void* key)
+{
     if (tree == NULL || tree->root == NULL) return;
 
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
-
 }
 
 // 6.- Implemente las funciones para recorrer la estructura: 
@@ -153,8 +153,16 @@ void eraseTreeMap(TreeMap * tree, void* key){
 // Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a partir del puntero TreeNode* current. 
 // Recuerde actualizar este puntero.
 
-Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+Pair * firstTreeMap(TreeMap * tree) 
+{
+    if (tree->root == NULL)
+    {
+        return NULL;
+    }
+
+    TreeNode* minimo = minimum(tree->root);
+    tree->current = minimo;
+    return min->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
