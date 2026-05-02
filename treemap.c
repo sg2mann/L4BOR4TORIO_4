@@ -42,8 +42,8 @@ TreeNode * createTreeNode(void* key, void * value) {
 // Esta función recibe la función de comparación de claves y crea un mapa (TreeMap) inicializando sus variables. 
 // Reserve memoria, inicialice el resto de variables y retorne el mapa.
     
-TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
-
+TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) 
+{
     TreeMap * mapa = (TreeMap *) malloc(sizeof(TreeMap));
     if (mapa == NULL)
     {
@@ -59,8 +59,9 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 // la cual busca el nodo con clave igual a key y retorna el Pair asociado al nodo. 
 // Si no se encuentra la clave retorna NULL. Recuerde hacer que el current apunte al nodo encontrado.
 
-Pair * searchTreeMap(TreeMap * tree, void* key) {
-    return NULL;
+Pair * searchTreeMap(TreeMap * tree, void* key) 
+{
+    
 }
 
 // 3. Implemente la función void insertTreeMap(TreeMap * tree, void* key, void * value). 
@@ -68,8 +69,14 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 // Para insertar un dato, primero debe realizar una búsqueda para encontrar donde debería ubicarse. 
 // Luego crear el nuevo nodo y enlazarlo. Si la clave del dato ya existe retorne sin hacer nada (recuerde que el mapa no permite claves repetidas).
 
-void insertTreeMap(TreeMap * tree, void* key, void * value) {
-
+void insertTreeMap(TreeMap * tree, void* key, void * value) 
+{
+    if (tree->root == NULL)
+        {
+            tree->root = createTreeNode(key, value);
+            tree->current = tree->root;
+            return;
+        }
 }
 
 // 4. Implemente la función TreeNode * minimum(TreeNode * x). 
