@@ -83,12 +83,12 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
     while (aux != NULL)
         {
-            if(is_equal(tree, key, aux->pair->key))
+            if (is_equal(tree, key, aux->pair->key))
             {
                 return;
             }
             parent = aux;
-            if(tree->lower_than(key, aux->pair->key))
+            if (tree->lower_than(key, aux->pair->key))
             {
                 aux = aux->left;
             }
@@ -120,7 +120,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 
 TreeNode * minimum(TreeNode * x)
 {
-    while(x != NULL && x->left != NULL)
+    while (x != NULL && x->left != NULL)
         {
             x = x->left;
         }
@@ -167,7 +167,7 @@ Pair * firstTreeMap(TreeMap * tree)
 
 Pair * nextTreeMap(TreeMap * tree) 
 {
-    if(tree->current == NULL)
+    if (tree->current == NULL)
     {
         return NULL;
     }
@@ -202,8 +202,34 @@ Pair * nextTreeMap(TreeMap * tree)
 // Para implementarla puede realizar una búsqueda normal y usar un puntero a nodo auxiliar ub_node que vaya guardando el nodo con la menor clave mayor o igual a key. 
 // Finalmente retorne el par del nodo ub_node.
 
-Pair * upperBound(TreeMap * tree, void* key) {
+Pair * upperBound(TreeMap * tree, void* key) 
+{
+    TreeNode* aux = tree->root;
+    TreeNode* candidato = NULL;
+
+    while (aux != NULL)
+        {
+            if (is_equal(tree, key, aux->pair->key))
+            {
+                tree->current = aux;
+                return aux->pair;
+            }
+            if (tree->lower_than(key, aux->pair->key))
+            {
+                cadidato = aux;
+                aux = aux->left;
+            }
+            else
+            {
+                aux = aux->right;
+            }
+        }
+
+    if (candidato != NULL)
+    {
+        tree->current = candidato;
+        return candidato->pair;
+    }
+
     return NULL;
 }
-
-
