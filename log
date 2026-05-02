@@ -115,3 +115,9 @@ treemap.c:219:17: error: ‘cadidato’ undeclared (first use in this function);
       |                 candidato
 treemap.c:219:17: note: each undeclared identifier is reported only once for each function it appears in
 ee55e3f
+Sat May  2 09:41:56 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  19|2
+total_score: 40/60
+b6fe660

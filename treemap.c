@@ -216,7 +216,7 @@ Pair * upperBound(TreeMap * tree, void* key)
             }
             if (tree->lower_than(key, aux->pair->key))
             {
-                cadidato = aux;
+                candidato = aux;
                 aux = aux->left;
             }
             else
